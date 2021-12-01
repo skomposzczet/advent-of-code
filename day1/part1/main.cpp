@@ -8,8 +8,7 @@ int main()
     if (!file.is_open())
         std::cout << "not ok" << std::endl;
 
-    int curr, prev;
-    curr = prev = -1;
+    int curr=-1, prev=-1;
 
     int counter = 0;
 
