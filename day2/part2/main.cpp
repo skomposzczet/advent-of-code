@@ -7,11 +7,15 @@
 struct Coords
 {
     Coords() :aim{0}, hor{0}, dep{0} {}
+ 
     int aim;
     int hor;
     int dep;
 
+    // horizontal and depth modifier
     void f(int n) {hor+=n; dep+=(aim*n);}
+
+    // aim modifiers
     void d(int n) {aim+=n;}
     void u(int n) {aim-=n;}
 };
@@ -26,9 +30,8 @@ int main()
     }
 
     Coords coords;
-    std::string buff;
 
-    while(getline(file, buff))
+    for (std::string buff ; getline(file, buff) ; )
     {   
         int num = std::stoi(buff.substr(buff.find_last_of(' ')+1,1));
         switch (buff.at(0))
