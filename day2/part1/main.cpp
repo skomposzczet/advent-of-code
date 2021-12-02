@@ -10,11 +10,8 @@ struct Coords
     int x;
     int y;
 
-    void (Coords::*_add)(int);
     void addx(int num) {x+=num;}
     void addy(int num) {y+=num;}
-
-
 };
 
 int main()
