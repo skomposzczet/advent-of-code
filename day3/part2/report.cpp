@@ -37,7 +37,7 @@ int Report::convert(std::string num) const
 {   
     int ret = 0;
 
-    std::for_each(num.begin(), num.end(), [&ret](char n){ret = 2*ret + (n == '1' ? 1 : 0); });
+    std::for_each(num.begin(), num.end(), [&ret](char n){ret = 2*ret + (n == '1'); });
 
     return ret;
 }
