@@ -14,6 +14,8 @@ public:
     void add_nums(std::string str);
     void add_board(Board b) { boards.push_back(b);}
 
+    int result();
+
 private:
     std::vector<int> numbers;
 

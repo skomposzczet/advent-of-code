@@ -16,6 +16,9 @@ public:
     void add_row(std::string);
     void clear() { rc.clear(); rc.reserve(size*size); }
     void print()const;
+    void add_num(int num);
+    bool check() const;
+    int calc() const;
 
 private:
     enum s{size = 5};
