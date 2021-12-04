@@ -31,17 +31,13 @@ int main()
         if (i == 5)
         {
             bingo.add_board(board);
-            // board.print();
             board.clear();
             i = -1;
         }
         else
             board.add_row(buff);
     }
-    /// adding last board
     bingo.add_board(board);
-    // board.print();
-    // board.clear();
 
     std::cout << bingo.result() << std::endl;
 

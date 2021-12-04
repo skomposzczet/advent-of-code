@@ -11,9 +11,13 @@ class Bingo
 public:
     Bingo() {}
 
+    /// Add number to vector of "random" numbers
     void add_nums(std::string str);
+
+    /// Adds board to vector of playing boards
     void add_board(Board b) { boards.push_back(b);}
 
+    /// Finds winning boards and returns result
     int result();
 
 private:

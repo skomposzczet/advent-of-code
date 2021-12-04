@@ -23,20 +23,6 @@ void Board::extract_ints(std::string & str, std::vector<int> & nums, char divide
 
 void Board::parse(std::string & str)
 {
-    // std::string newstr;
-
-    // size_t beg = 0;
-    // size_t len = str.length();
-
-    // while (beg < len)
-    // {
-    //     size_t end = str.find_first_of(' ', beg) + 1;
-    //     newstr += str.substr(beg, end - beg);
-    //     beg = str.find_first_not_of(' ', end);
-    // }
-
-    // str = newstr;
-
     while (str.at(0) == ' ')
         str.erase(0, 1);
 
@@ -71,9 +57,6 @@ void Board::print()const
 void Board::add_num(int num)
 {
     std::for_each(rc.begin(), rc.end(), [&num](std::pair<int, bool> & p){if (p.first == num) p.second = true; } );
-    // for (auto & p : rc)
-    //     if (p.first == num)
-    //         p.second = true;
 }
 
 bool Board::check() const
