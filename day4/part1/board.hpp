@@ -13,8 +13,8 @@ friend class Bingo;
 public:
     Board();
 
-    /// Converts string to row of numbers 
-    void add_row(std::string);
+    /// Converts string @p str to row of numbers 
+    void add_row(std::string str);
 
     /// Clears board
     void clear() { rc.clear(); rc.reserve(size*size); }
