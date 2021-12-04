@@ -17,7 +17,7 @@ public:
     /// Adds board to vector of playing boards
     void add_board(Board b) { boards.push_back(b);}
 
-    /// Finds winning boards and returns result
+    /// Finds winning board and returns result
     int result();
 
 private:
