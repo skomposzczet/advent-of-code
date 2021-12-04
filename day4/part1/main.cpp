@@ -37,8 +37,9 @@ int main()
         }
         else
             board.add_row(buff);
-        
     }
-
-
+    /// adding last board
+    bingo.add_board(board);
+    board.print();
+    board.clear();
 }
