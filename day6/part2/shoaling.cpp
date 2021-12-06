@@ -2,7 +2,7 @@
 
 void Shoaling::add_fish(std::string set)
 {
-    std::for_each(set.begin(), set.end(), [this](char c){if (isnum(c)) fishes.push_back(std::stoi(std::string(1,c))); });
+    std::for_each(set.begin(), set.end(), [this](char c){if (isnum(c)) fishes.push_back(c-48); });
 }
 
 long long Shoaling::result(int dtp)

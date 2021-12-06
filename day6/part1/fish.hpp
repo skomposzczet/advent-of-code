@@ -7,8 +7,6 @@ friend class Shoaling;
 public:
     Fish(int n = 8) : timer{n} {}
 
-    // void operator--() {--timer;}
-
     /// Changes timer as if one day passed
     /// @return True if new fish should be born, false otherwise
     bool pass()
