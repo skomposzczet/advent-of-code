@@ -1,4 +1,4 @@
-OUTPUT = main
+OUTPUT = main.out
 
 CC=g++
 CFLAGS+=-std=c++17 -Wall -pedantic -g -MMD -MP -Wno-unknown-pragmas
