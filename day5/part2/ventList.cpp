@@ -18,9 +18,7 @@ void VentList::make_grid()
     ++maxy;
     grid = std::vector<int>(maxy*maxx, 0);
 
-    // std::for_each(lines.begin(), lines.end(), ppg);                          // EXAMINE THAT LATER
-    for (unsigned i = 0 ; i < lines.size() ; i++)
-        ppg(lines.at(i));
+    std::for_each(lines.begin(), lines.end(), [this](Line & l){ppg(l);});
 }
 
 void VentList::ppg(Line & l)
