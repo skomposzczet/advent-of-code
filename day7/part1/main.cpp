@@ -8,7 +8,7 @@
 #define INPUTFILE "../input"
 
 int median(std::vector<int> & nums);
-int calc(std::vector<int> pos, int target);
+int calc(std::vector<int> & pos, int target);
 int abs(int n) {return (n>0?n:-n);}
 
 int main()
@@ -42,7 +42,7 @@ int median(std::vector<int> & nums)
         return nums.at(nums.size()/2-1);
 }
 
-int calc(std::vector<int> pos, int target)
+int calc(std::vector<int> & pos, int target)
 {
     int res = 0;
     std::for_each(pos.begin(), pos.end(), [&res, &target](int n){res+=(abs(n-target));} );
