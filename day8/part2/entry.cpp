@@ -1,18 +1,20 @@
 #include "entry.hpp"
 
-int Entry::sum = 0;
-
 void Entry::getdata(const std::string & str)
 {
-    std::vector<std::string> temp;
+    strvec temp;
+    temp.reserve(10);
+    strvec code;
+    code.reserve(4);
+
     tokenize(str.substr(0, str.find_first_of('|')-1), temp);
     tokenize(str.substr(str.find_first_of('|')+2, str.size() - str.find_first_of('|')), code);
 
     analyze(temp);
-    decode();
+    decode(code);
 }
 
-void Entry::tokenize(const std::string & str, std::vector<std::string> & v)
+void Entry::tokenize(const std::string & str, strvec & v)
 {
     std::string temp;
     std::stringstream ss{str};
@@ -23,11 +25,11 @@ void Entry::tokenize(const std::string & str, std::vector<std::string> & v)
     }
 }
 
-void Entry::analyze(std::vector<std::string> & mappings)
+void Entry::analyze(strvec & mappings)
 {
-    std::vector<std::string> six;
+    strvec six;
     six.reserve(3);
-    std::vector<std::string> five;
+    strvec five;
     five.reserve(3);
 
     for (auto pattern : mappings)
@@ -75,9 +77,9 @@ int Entry::common(const std::string & str1, const std::string & str2)
     return comm;
 }
 
-void Entry::decode()
+void Entry::decode(strvec & code)
 {
-    int part;
+    int part = 0;
     std::for_each(code.begin(), code.end(), [this, &part](std::string key)
     {
         auto it = std::find(patterns.begin(), patterns.end(), key);
@@ -90,6 +92,4 @@ void Entry::decode()
     );
 
     sum+=part;
-    code = std::vector<std::string>();
-    code.reserve(4);
 }

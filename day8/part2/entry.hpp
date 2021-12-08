@@ -8,21 +8,21 @@
 
 class Entry
 {
+typedef std::vector<std::string> strvec;
 public:
-    Entry() : patterns{std::vector<std::string>(10)} {code.reserve(4);}
+    Entry() : patterns{std::vector<std::string>(10)}, sum{0} {}
     ~Entry() {}
 
-    /// Proccesses string from input
+    /// Proccesses entry, from tokenizing to calculating local result
     void getdata(const std::string & str);
 
     /// Returns final result
     int result() const { return sum; }
 
 private:
-    std::vector<std::string> patterns;
-    std::vector<std::string> code;
+    strvec patterns;
 
-    static int sum;
+    int sum;
 
     /// Tokenizes string @p str into vector @p v , sorts each string
     void tokenize(const std::string & str, std::vector<std::string> & v);
@@ -33,8 +33,8 @@ private:
     /// @returns number of common chars
     int common(const std::string & str1, const std::string & str2);
 
-    /// Decodes and clears code vector
-    void decode();
+    /// Decodes 
+    void decode(std::vector<std::string> & code);
 
 };
 
