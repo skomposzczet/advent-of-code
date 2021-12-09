@@ -10,9 +10,7 @@ void Hmap::analyze()
 
 bool Hmap::is_lowest(Point p) const
 {
-    std::vector<Point> neighbour_vectors{Point(0,-1), Point(-1, 0), Point(1,0), Point(0,1)};
-
-    unsigned bigger = std::count_if(neighbour_vectors.begin(), neighbour_vectors.end(), [this, &p](Point & vec)
+    unsigned bigger = std::count_if(neighbour_vectors.begin(), neighbour_vectors.end(), [this, &p](const Point & vec)
     {
         if (iir(p+vec))
             return (get_char(p+vec) > get_char(p));
@@ -31,9 +29,7 @@ int Hmap::detect_basin(Point p, std::vector<Point> & coords)
     else
         return 0;
 
-    std::vector<Point> neighbour_vectors{Point(0,-1), Point(-1, 0), Point(1,0), Point(0,1)};
-
-    for (auto & vec : neighbour_vectors)
+    for (const auto & vec : neighbour_vectors)
         if (iir(p+vec))
             if (get_char(p+vec) != '9')
                 detect_basin(p+vec, coords);

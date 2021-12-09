@@ -28,6 +28,10 @@ private:
     std::vector<std::string> rows;
     std::vector<int> basins;
 
+    /// Vectors with which every neighbour of point can be created
+    const std::vector<Point> neighbour_vectors{Point(0,-1), Point(-1, 0), Point(1,0), Point(0,1)};
+
+
     /// @returns True if point is lowest in its neighbourhood
     bool is_lowest(Point p) const;
 
