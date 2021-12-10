@@ -24,15 +24,12 @@ bool Hmap::is_lowest(Point p) const
 
 int Hmap::detect_basin(Point p, std::vector<Point> & coords)
 {
-    if (std::find(coords.begin(), coords.end(), p) == coords.end())
-        coords.push_back(p);
-    else
-        return 0;
+    coords.push_back(p);
 
     for (const auto & vec : neighbour_vectors)
-        if (iir(p+vec))
-            if (get_char(p+vec) != '9')
-                detect_basin(p+vec, coords);
+        if (iir(p+vec) && get_char(p+vec) != '9' && std::find(coords.begin(), coords.end(), p+vec) == coords.end())
+            detect_basin(p+vec, coords);
+
 
     return coords.size();
 }
