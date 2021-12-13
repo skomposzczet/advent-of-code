@@ -7,14 +7,6 @@ void Paper::get_line(std::string line)
 
     if (line.at(0) == 'f')
     {
-        // if (f==-1)
-        // {
-        //     f = std::stoi(line.substr(line.find_first_of('=')+1, line.size()-line.find_first_of('=')-1));
-        //     w = line.at(line.find_first_of('=')-1);
-        // }
-
-        // return;
-
         int temp = std::stoi(line.substr(line.find_first_of('=')+1, line.size()-line.find_first_of('=')-1));
         line.at(line.find_first_of('=')-1) == 'x' ? foldx(temp) : foldy(temp); 
     }
